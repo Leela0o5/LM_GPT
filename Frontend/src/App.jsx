@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import "./App.css";
+import SideBar from "./Sidebar";
+import ChatWindow from "./ChatWindow";
+import { MyContext } from "./MyContext";
+import { useState } from "react";
+import { v1 as uuidv1 } from "uuid";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [prompt, setPrompt] = useState("");
+  const [reply, setReply] = useState(null);
+  const [currThreadId, setCurrThreadId] = useState(uuidv1());
+  const [previousChats, setPreviousChats] = useState([]); // Stores all prev chats of curr threads
+  const [newChat, setNewChat] = useState(true);
+  const providerValues = {
+    prompt,
+    setPrompt,
+    reply,
+    setReply,
+    currThreadId,
+    setCurrThreadId,
+    newChat,
+    setNewChat,
+    previousChats,
+    setPreviousChats,
+  };
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <MyContext.Provider value={providerValues}>
+        <SideBar />
+        <ChatWindow />
+      </MyContext.Provider>
+    </div>
+  );
 }
 
-export default App
+export default App;
