@@ -19,6 +19,7 @@ export default function ChatWindow() {
     setNewChat,
   } = useContext(MyContext);
   const [loading, SetLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const getReply = async () => {
     SetLoading(true);
     setNewChat(false);
@@ -72,11 +73,27 @@ export default function ChatWindow() {
           LM-GPT <i className="fa-solid fa-chevron-down"></i>
         </span>
         <div className="userIconDiv">
-          <span className="userIcon">
+          <span className="userIcon" onClick={(e) => setIsOpen(!isOpen)}>
             <i className="fa-solid fa-user"></i>
           </span>
         </div>
       </div>
+
+      {isOpen && (
+        <div className="dropDown">
+          <div className="dropDownItem">
+            <i className="fa-solid fa-cloud-arrow-up"></i>&nbsp;&nbsp;Upgrade
+            Plan
+          </div>
+          <div className="dropDownItem">
+            <i className="fa-solid fa-gear"></i>&nbsp;&nbsp;Settings
+          </div>
+          <div className="dropDownItem">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            &nbsp;&nbsp;Logout
+          </div>
+        </div>
+      )}
 
       {/* Chat area */}
       <Chat />
