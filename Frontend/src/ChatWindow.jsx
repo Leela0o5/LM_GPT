@@ -16,10 +16,12 @@ export default function ChatWindow() {
     currThreadId,
     previousChats,
     setPreviousChats,
+    setNewChat,
   } = useContext(MyContext);
   const [loading, SetLoading] = useState(false);
   const getReply = async () => {
     SetLoading(true);
+    setNewChat(false);
     console.log("message: ", prompt, "threadId : ", currThreadId);
     const options = {
       method: "POST",

@@ -1,4 +1,3 @@
-
 import "./App.css";
 import SideBar from "./Sidebar";
 import ChatWindow from "./ChatWindow";
@@ -12,6 +11,7 @@ function App() {
   const [currThreadId, setCurrThreadId] = useState(uuidv1());
   const [previousChats, setPreviousChats] = useState([]); // Stores all prev chats of curr threads
   const [newChat, setNewChat] = useState(true);
+  const [allThreads, setAllThreads] = useState([]);
   const providerValues = {
     prompt,
     setPrompt,
@@ -23,6 +23,8 @@ function App() {
     setNewChat,
     previousChats,
     setPreviousChats,
+    allThreads,
+    setAllThreads,
   };
   return (
     <div className="app">

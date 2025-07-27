@@ -1,32 +1,80 @@
-/* For Chrome, Edge, Safari */
+/* Hide scrollbars in Chrome, Edge, Safari */
 .chats::-webkit-scrollbar {
   display: none;
 }
 
+/* Chat container */
 .chats {
-    max-width: 700px;
-    overflow-y: scroll;
-    padding: 8rem;
-    -ms-overflow-style: none;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow-y: scroll;
+  padding: 6rem 2rem 2rem 2rem;
+  -ms-overflow-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
+/* Heading shown for new chats */
+.newChatHeading {
+  font-size: 1.7rem;
+  color: #d0d0d0;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* User message container */
 .userDiv {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 0.9rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
-
+/* GPT message container */
 .gptDiv {
-    text-align: left;
+   text-align: left;
     font-size: 0.9rem;
 }
 
+
+/* User message bubble */
 .userMessage {
-    background-color: #323232;
-    padding: 10px 20px;
-    border-radius: 14px;
-    margin-left: 15rem;
-    max-width: 500px;
-    width: fit-content;
+  background-color: #323232;
+  padding: 12px 18px;
+  border-radius: 16px 16px 4px 16px;
+  margin-left: auto;
+  max-width: 75%;
+  width: fit-content;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* GPT message bubble */
+.gptDiv > * {
+  background-color: #1f1f1f;
+  padding: 12px 18px;
+  border-radius: 16px 16px 16px 4px;
+  max-width: 75%;
+  width: fit-content;
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Code block */
+.hljs {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+/* Preformatted text block */
+pre {
+  white-space: pre-wrap;
 }
