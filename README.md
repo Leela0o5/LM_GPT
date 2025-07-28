@@ -1,6 +1,6 @@
 # LM_GPT
 
-LM_GPT is a full-stack AI chat application built with React and Node.js. It uses the OpenAI Chat Completion API to generate intelligent responses based on user input. The application supports multiple chat threads, shows typing animations during responses, and formats content using markdown and code highlighting.
+LM_GPT is a AI chat application built with React and Node.js. It uses the OpenAI Chat Completion API to generate intelligent responses based on user input. The application supports multiple chat threads, shows typing animations during responses, and formats content using markdown and code highlighting.
 
 ## Tech Stack
 
